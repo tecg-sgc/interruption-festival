@@ -230,7 +230,7 @@ https://templatemo.com/tm-583-festava-live
 
                                     <p>
                                         <strong>Birthdate:</strong>
-                                        <?= $artist->birthday ?>
+                                        <?= date('j F Y', strtotime($artist->birthday)) ?>
                                     </p>
 
                                     <p>
@@ -263,7 +263,7 @@ https://templatemo.com/tm-583-festava-live
 
                                     <p>
                                         <strong>Birthdate:</strong>
-                                        <?= $artist->birthday ?>
+                                        <?= date('j F Y', strtotime($artist->birthday)) ?>
                                     </p>
 
                                     <p>

@@ -6,6 +6,7 @@ class HomeController extends BaseController
     {
         return $this->view('home', [
             'title' => 'Salut les copains',
+            'artists' => Artist::getHomepageArtists(),
         ]);
     }
 }

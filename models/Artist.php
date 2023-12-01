@@ -11,6 +11,7 @@ class Artist extends baseModel
             JOIN `schedules` s ON a.id = s.artist_id
             JOIN `days` d ON s.day_id = d.id
             WHERE d.edition_id = :edition_id
+            AND a.`deleted_at` IS NULL
             ORDER BY a.`popularity` DESC 
             LIMIT 3;',
             ['edition_id' => $edition->id]

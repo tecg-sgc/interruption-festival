@@ -4,6 +4,7 @@ require_once('config.php');
 
 // Charger les fichiers dont on va avoir besoin :
 require_once('./models/BaseModel.php');
+require_once('./models/Edition.php');
 require_once('./models/Artist.php');
 require_once('./controllers/BaseController.php');
 require_once('./controllers/HomeController.php');

@@ -4,9 +4,11 @@ class HomeController extends BaseController
 {
     public function show()
     {
+        $edition = Edition::getCurrent();
+
         return $this->view('home', [
-            'title' => 'Salut les copains',
-            'artists' => Artist::getHomepageArtists(),
+            'title' => $edition->title,
+            'artists' => Artist::getHomepageArtists($edition),
         ]);
     }
 }

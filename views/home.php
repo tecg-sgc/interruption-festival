@@ -214,96 +214,72 @@ https://templatemo.com/tm-583-festava-live
                             <h2 class="mb-4">Meet Artists</h1>
                         </div>
 
+                        <?php $artist = array_shift($artists); ?>
+
                         <div class="col-lg-5 col-12">
                             <div class="artists-thumb">
                                 <div class="artists-image-wrap">
-                                    <img src="images/artists/joecalih-UmTZqmMvQcw-unsplash.jpg" class="artists-image img-fluid">
+                                    <img src="images/artists/<?= $artist->thumb ?>" class="artists-image img-fluid">
                                 </div>
 
                                 <div class="artists-hover">
                                     <p>
                                         <strong>Name:</strong>
-                                        Madona
+                                        <?= $artist->name ?>
                                     </p>
 
                                     <p>
                                         <strong>Birthdate:</strong>
-                                        August 16, 1958
+                                        <?= $artist->birthday ?>
                                     </p>
 
                                     <p>
                                         <strong>Music:</strong>
-                                        Pop, R&amp;B
+                                        <?= $artist->genre ?>
                                     </p>
 
                                     <hr>
 
                                     <p class="mb-0">
                                         <strong>Youtube Channel:</strong>
-                                        <a href="#">Madona Official</a>
+                                        <a href="<?= $artist->youtube ?>"><?= $artist->name ?> Official</a>
                                     </p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-5 col-12">
+                            <?php foreach($artists as $index => $artist): ?>
                             <div class="artists-thumb">
                                 <div class="artists-image-wrap">
-                                    <img src="images/artists/abstral-official-bdlMO9z5yco-unsplash.jpg" class="artists-image img-fluid">
+                                    <img src="images/artists/<?= $artist->thumb ?>" class="artists-image img-fluid">
                                 </div>
 
                                 <div class="artists-hover">
                                     <p>
                                         <strong>Name:</strong>
-                                        Rihana
+                                        <?= $artist->name ?>
                                     </p>
 
                                     <p>
                                         <strong>Birthdate:</strong>
-                                        Feb 20, 1988
+                                        <?= $artist->birthday ?>
                                     </p>
 
                                     <p>
                                         <strong>Music:</strong>
-                                        Country
+                                        <?= $artist->genre ?>
                                     </p>
 
                                     <hr>
 
                                     <p class="mb-0">
                                         <strong>Youtube Channel:</strong>
-                                        <a href="#">Rihana Official</a>
+                                        <a href="<?= $artist->youtube ?>"><?= $artist->name ?> Official</a>
                                     </p>
                                 </div>
                             </div>
-
-                            <div class="artists-thumb">
-                                <img src="images/artists/soundtrap-rAT6FJ6wltE-unsplash.jpg" class="artists-image img-fluid">
-
-                                <div class="artists-hover">
-                                    <p>
-                                        <strong>Name:</strong>
-                                        Bruno Bros
-                                    </p>
-
-                                    <p>
-                                        <strong>Birthdate:</strong>
-                                        October 8, 1985
-                                    </p>
-
-                                    <p>
-                                        <strong>Music:</strong>
-                                        Pop
-                                    </p>
-
-                                    <hr>
-
-                                    <p class="mb-0">
-                                        <strong>Youtube Channel:</strong>
-                                        <a href="#">Bruno Official</a>
-                                    </p>
-                                </div>
-                            </div>
+                        <?php endforeach; ?>
                         </div>
 
                     </div>

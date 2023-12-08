@@ -42,7 +42,7 @@ CREATE TABLE `artists` (
   KEY `artists_country_id_countries_id` (`country_id`),
   CONSTRAINT `artists_country_id_countries_id` FOREIGN KEY (`country_id`) REFERENCES `countries` (`id`),
   CONSTRAINT `artists_genre_id_genres_id` FOREIGN KEY (`genre_id`) REFERENCES `genres` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 LOCK TABLES `artists` WRITE;
 /*!40000 ALTER TABLE `artists` DISABLE KEYS */;
@@ -106,7 +106,7 @@ CREATE TABLE `countries` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 LOCK TABLES `countries` WRITE;
 /*!40000 ALTER TABLE `countries` DISABLE KEYS */;
@@ -145,7 +145,7 @@ CREATE TABLE `days` (
   PRIMARY KEY (`id`),
   KEY `days_edition_id_editions_id` (`edition_id`),
   CONSTRAINT `days_edition_id_editions_id` FOREIGN KEY (`edition_id`) REFERENCES `editions` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 LOCK TABLES `days` WRITE;
 /*!40000 ALTER TABLE `days` DISABLE KEYS */;
@@ -197,7 +197,7 @@ CREATE TABLE `editions` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 LOCK TABLES `editions` WRITE;
 /*!40000 ALTER TABLE `editions` DISABLE KEYS */;
@@ -227,7 +227,7 @@ CREATE TABLE `genres` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 LOCK TABLES `genres` WRITE;
 /*!40000 ALTER TABLE `genres` DISABLE KEYS */;
@@ -263,7 +263,7 @@ CREATE TABLE `pages` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `pages_uri_unique` (`uri`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 
@@ -289,7 +289,7 @@ CREATE TABLE `schedules` (
   CONSTRAINT `schedules_artist_id_artists_id` FOREIGN KEY (`artist_id`) REFERENCES `artists` (`id`) ON DELETE CASCADE,
   CONSTRAINT `schedules_day_id_days_id` FOREIGN KEY (`day_id`) REFERENCES `days` (`id`) ON DELETE CASCADE,
   CONSTRAINT `schedules_stage_id_stages_id` FOREIGN KEY (`stage_id`) REFERENCES `stages` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 LOCK TABLES `schedules` WRITE;
 /*!40000 ALTER TABLE `schedules` DISABLE KEYS */;
@@ -333,7 +333,7 @@ CREATE TABLE `sections` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `sections_pages_id_slug_unique` (`page_id`,`slug`),
   CONSTRAINT `sections_page_id_pages_id` FOREIGN KEY (`page_id`) REFERENCES `pages` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 
@@ -354,7 +354,7 @@ CREATE TABLE `stages` (
   PRIMARY KEY (`id`),
   KEY `stages_genre_id_genres_id` (`genre_id`),
   CONSTRAINT `stages_genre_id_genres_id` FOREIGN KEY (`genre_id`) REFERENCES `genres` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 LOCK TABLES `stages` WRITE;
 /*!40000 ALTER TABLE `stages` DISABLE KEYS */;
@@ -400,7 +400,7 @@ CREATE TABLE `ticket_user` (
   KEY `ticket_user_user_id_users_id` (`user_id`),
   CONSTRAINT `ticket_user_ticket_id_tickets_id` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`),
   CONSTRAINT `ticket_user_user_id_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 
@@ -426,7 +426,7 @@ CREATE TABLE `tickets` (
   KEY `tickets_day_id_days_id` (`day_id`),
   CONSTRAINT `tickets_day_id_days_id` FOREIGN KEY (`day_id`) REFERENCES `days` (`id`) ON DELETE CASCADE,
   CONSTRAINT `tickets_edition_id_editions_id` FOREIGN KEY (`edition_id`) REFERENCES `editions` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
@@ -458,7 +458,7 @@ CREATE TABLE `users` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 

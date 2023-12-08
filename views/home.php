@@ -396,27 +396,34 @@ https://templatemo.com/tm-583-festava-live
                             <h2 class="text-center mb-4">Plans, you' love</h2>
                         </div>
                         
+                        <?php foreach($tickets as $ticket): ?>
                         <div class="col-lg-6 col-12">
                             <div class="pricing-thumb">
                                 <div class="d-flex">
                                     <div>
-                                        <h3><small>Early Bird</small> $120</h3>
+                                        <h3><small><?= $ticket->name ?></small> $<?= number_format(round($ticket->price * ((100 + $ticket->vat) / 100)) / 100, 2, ',', '&nbsp;') ?></h3>
 
+                                        <?php if($ticket->date): ?>
+                                            <p><time datetime="<?= date('c', strtotime($ticket->date)) ?>">Le <?= date('j F Y', strtotime($ticket->date)) ?></time></p>
+                                        <?php endif; ?>
+
+                                        <?php if($ticket->artists): ?>
                                         <p>Including good things:</p>
+                                        <?php endif; ?>
                                     </div>
 
-                                    <p class="pricing-tag ms-auto">Save up to <span>50%</span></h2>
+                                    <?php if($ticket->discount): ?>
+                                    <p class="pricing-tag ms-auto">Save up to <span><?= $ticket->discount ?>%</span></p>
+                                    <?php endif; ?>
                                 </div>
 
+                                <?php if($ticket->artists): ?>
                                 <ul class="pricing-list mt-3">
-                                    <li class="pricing-list-item">platform for potential customers</li>
-
-                                    <li class="pricing-list-item">digital experience</li>
-
-                                    <li class="pricing-list-item">high-quality sound</li>
-
-                                    <li class="pricing-list-item">standard content</li>
+                                    <?php foreach($ticket->artists as $artist): ?>
+                                    <li class="pricing-list-item"><?= $artist->name ?></li>
+                                    <?php endforeach; ?>
                                 </ul>
+                                <?php endif; ?>
 
                                 <a class="link-fx-1 color-contrast-higher mt-4" href="ticket.html">
                                     <span>Buy Ticket</span>
@@ -424,35 +431,7 @@ https://templatemo.com/tm-583-festava-live
                                 </a>
                             </div>
                         </div>
-
-                        <div class="col-lg-6 col-12 mt-4 mt-lg-0">
-                            <div class="pricing-thumb">
-                                <div class="d-flex">
-                                    <div>
-                                        <h3><small>Standard</small> $240</h3>
-
-                                        <p>What makes a premium festava?</p>
-                                    </div>
-                                </div>
-
-                                <ul class="pricing-list mt-3">
-                                    <li class="pricing-list-item">platform for potential customers</li>
-
-                                    <li class="pricing-list-item">digital experience</li>
-
-                                    <li class="pricing-list-item">high-quality sound</li>
-
-                                    <li class="pricing-list-item">premium content</li>
-                                    
-                                    <li class="pricing-list-item">live chat support</li>
-                                </ul>
-
-                                <a class="link-fx-1 color-contrast-higher mt-4" href="ticket.html">
-                                    <span>Buy Ticket</span>
-                                    <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="15.5"></circle><line x1="10" y1="18" x2="16" y2="12"></line><line x1="16" y1="12" x2="22" y2="18"></line></g></svg>
-                                </a>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
 
                     </div>
                 </div>

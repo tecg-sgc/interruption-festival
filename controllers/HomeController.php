@@ -9,6 +9,7 @@ class HomeController extends BaseController
         return $this->view('home', [
             'title' => $edition->title,
             'artists' => Artist::getHomepageArtists($edition),
+            'tickets' => Ticket::getHomepageTickets($edition),
         ]);
     }
 }

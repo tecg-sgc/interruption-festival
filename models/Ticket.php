@@ -1,6 +1,6 @@
 <?php
 
-class Ticket extends baseModel
+class Ticket extends BaseModel
 {
     public function homepageTickets($edition)
     {

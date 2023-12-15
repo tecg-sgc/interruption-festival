@@ -10,6 +10,7 @@ class HomeController extends BaseController
             'title' => $edition->title,
             'artists' => Artist::getHomepageArtists($edition),
             'tickets' => Ticket::getHomepageTickets($edition),
+            'schedules' => Schedule::getHomepageTable($edition),
         ]);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-class Artist extends baseModel
+class Artist extends BaseModel
 {
     public function homepageArtists($edition)
     {

@@ -9,10 +9,17 @@ require_once('./models/Artist.php');
 require_once('./models/Ticket.php');
 require_once('./models/Day.php');
 require_once('./models/Schedule.php');
+require_once('./models/Message.php');
 require_once('./controllers/BaseController.php');
 require_once('./controllers/HomeController.php');
+require_once('./controllers/ContactController.php');
 
 // Normalement, on exploiterait un "router" pour choisir le bon controlleur
 
-$controller = new HomeController();
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $controller = new ContactController();
+} else {
+    $controller = new HomeController();
+}
+
 $controller->handle();

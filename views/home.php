@@ -301,84 +301,34 @@ https://templatemo.com/tm-583-festava-live
                             <div class="table-responsive">
                                 <table class="schedule-table table table-dark">
                                     <thead>
+                                        <?php $headers = array_shift($schedules); ?>
                                         <tr>
-                                            <th scope="col">Date</th>
-
-                                            <th scope="col">Wednesday</th>
-
-                                            <th scope="col">Thursday</th>
-
-                                            <th scope="col">Friday</th>
-
+                                            <?php foreach($headers as $day): ?>
+                                            <th scope="col"><?= $day->name; ?></th>
+                                            <?php endforeach; ?>
                                         </tr>
                                     </thead>
 
                                     <tbody>
+                                        <?php foreach($schedules as $row): ?>
                                         <tr>
-                                            <th scope="row">Day 1</th>
+                                            <?php foreach($row as $schedule): ?>
+                                                <?php if($schedule): ?>
+                                            <td class="table-background-image-wrap" style="background-image: url(images/artists/<?= $schedule->thumb; ?>);">
+                                                <h3><?= $schedule->artist; ?></h3>
 
-                                            <td class="table-background-image-wrap pop-background-image">
-                                                <h3>Pop Night</h3>
+                                                <p class="mb-2"><?= $schedule->started_at ?> - <?= $schedule->ended_at ?></p>
 
-                                                <p class="mb-2">5:00 - 7:00 PM</p>
-
-                                                <p>By Adele</p>
+                                                <p><?= trim($schedule->genre . ', ' . $schedule->stage, ', ') ?></p>
 
                                                 <div class="section-overlay"></div>
                                             </td>
-
+                                                <?php else: ?>
                                             <td style="background-color: #F3DCD4"></td>
-
-                                            <td class="table-background-image-wrap rock-background-image">
-                                                <h3>Rock & Roll</h3>
-
-                                                <p class="mb-2">7:00 - 11:00 PM</p>
-
-                                                <p>By Rihana</p>
-
-                                                <div class="section-overlay"></div>
-                                            </td>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
                                         </tr>
-
-                                        <tr>
-                                            <th scope="row">Day 2</th>
-                
-                                            <td style="background-color: #ECC9C7"></td>
-
-                                            <td>
-                                                <h3>DJ Night</h3>
-
-                                                <p class="mb-2">6:30 - 9:30 PM</p>
-
-                                                <p>By Rihana</p>
-                                            </td>
-
-                                            <td style="background-color: #D9E3DA"></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th scope="row">Day 3</th>
-                
-                                            <td class="table-background-image-wrap country-background-image">
-                                                <h3>Country Music</h3>
-
-                                                <p class="mb-2">4:30 - 7:30 PM</p>
-
-                                                <p>By Rihana</p>
-
-                                                <div class="section-overlay"></div>
-                                            </td>
-
-                                            <td style="background-color: #D1CFC0"></td>
-
-                                            <td>
-                                                <h3>Free Styles</h3>
-
-                                                <p class="mb-2">6:00 - 10:00 PM</p>
-
-                                                <p>By Members</p>
-                                            </td>
-                                        </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>

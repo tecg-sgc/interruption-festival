@@ -408,17 +408,17 @@ https://templatemo.com/tm-583-festava-live
                                         <div class="contact-form-body">
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-6 col-12">
-                                                    <input type="text" name="contact-name" id="contact-name" class="form-control" placeholder="Full name" required>
+                                                    <input type="text" name="contact_name" id="contact-name" class="form-control" placeholder="Full name" required>
                                                 </div>
 
                                                 <div class="col-lg-6 col-md-6 col-12">
-                                                    <input type="email" name="contact-email" id="contact-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required>
+                                                    <input type="email" name="contact_email" id="contact-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required>
                                                 </div>
                                             </div>
 
-                                            <input type="text" name="contact-company" id="contact-company" class="form-control" placeholder="Company" required>
+                                            <input type="text" name="contact_company" id="contact-company" class="form-control" placeholder="Company" required>
 
-                                            <textarea name="contact-message" rows="3" class="form-control" id="contact-message" placeholder="Message"></textarea>
+                                            <textarea name="contact_message" rows="3" class="form-control" id="contact-message" placeholder="Message"></textarea>
 
                                             <div class="col-lg-4 col-md-10 col-8 mx-auto">
                                                 <button type="submit" class="form-control">Send message</button>

@@ -9,8 +9,13 @@ require_once('models/Artist.php');
 require_once('models/Ticket.php');
 require_once('models/Day.php');
 require_once('models/Schedule.php');
+require_once('models/Message.php');
 require_once('controllers/BaseController.php');
 require_once('controllers/HomeController.php');
+require_once('controllers/ContactController.php');
 
-$controller = new HomeController();
+$controller = ($_SERVER['REQUEST_METHOD'] === 'POST')
+    ? new ContactController()
+    : new HomeController();
+
 $controller->handle();
